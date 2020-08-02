@@ -1,10 +1,17 @@
-const app = new PIXI.Application();
+const app = new PIXI.Application({ backgroundColor: 0x1099bb });
 
 document.getElementById("canvas-container").appendChild(app.view);
 
-for (let i = 0; i <= 299; i += 1) {
-  app.loader.add(String(i), "./seq/continental-oceanic." + ("000" + i).slice(-4) + ".jpg")
+const basicText = new PIXI.Text('Loading');
+basicText.x = 350;
+basicText.y = 270;
+
+app.stage.addChild(basicText);
+
+for (let i = 0; i <= 569; i += 1) {
+  app.loader.add(String(i), "./seq/Convergent_Plate_Boundaries_Continental-Continental." + ("000" + i).slice(-4) + ".jpg")
 }
+
 
 app.loader.load((loader, resources) => {
   let index = 0;
